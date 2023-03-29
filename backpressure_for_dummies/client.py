@@ -40,5 +40,5 @@ async def query_endpoint(endpoint_name: str, number: int):
 if __name__ == "__main__":
     number = 12
     asyncio.run(query_endpoint(endpoint_name="async_endpoint_with_backpressure", number=number))
-    asyncio.run(query_endpoint(endpoint_name="blocking_endpoint", number=number))
+    asyncio.run(query_endpoint(endpoint_name="sync_endpoint", number=number))
     asyncio.run(query_endpoint(endpoint_name="async_endpoint_with_backpressure", number=number))

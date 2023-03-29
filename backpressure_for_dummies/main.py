@@ -25,8 +25,8 @@ async def root():
     return {"message": "Hello World"}
 
 
-@app.get("/blocking_endpoint/{value}")
-async def blocking_endpoint(value: int):
+@app.get("/sync_endpoint/{value}")
+async def sync_endpoint(value: int):
     logging.info(f"got request for value {value}")
     start = time.time()
     _ = _compute(value) # preprocessing state
