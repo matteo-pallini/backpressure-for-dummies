@@ -10,9 +10,9 @@ async def get(session: aiohttp.ClientSession, value: int, url: str, retries: int
         url_value = f"{url}/{value}"
         logging.info(f"requesting {url_value}")
         resp = await session.request("GET", url=url_value)
-        if resp.status == 503:
+        if resp.status == 429:
             retries -= 1
-            logging.info(f"Got a 503 for {url_value} - retrying")
+            logging.info(f"Got a 429 for {url_value} - retrying")
             await asyncio.sleep(0.3)
             continue
         else:

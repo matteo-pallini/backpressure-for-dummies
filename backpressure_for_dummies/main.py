@@ -53,7 +53,7 @@ async def async_endpoint_with_backpressure(value: int):
     if sem.locked():
         print(f"Semaphore blocked {value}")
         raise HTTPException(
-            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            status_code=status.HTTP_429_SERVICE_UNAVAILABLE,
             detail="server overloaded"
                             )
     await sem.acquire()
